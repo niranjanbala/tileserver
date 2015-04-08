@@ -1,0 +1,195 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+  <link rel="stylesheet" href="./css/ol.css" type="text/css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" type="text/css">
+  <link rel="stylesheet" href="./css/layout.css" type="text/css">
+  <script src="js/ol.min.js" type="text/javascript"></script>
+  <style type="text/css">
+    div.fill {
+      width: 100%;
+      height: 100%;
+    }
+     #property-info {
+        background-color: white;
+        color: black;
+        font-size: 10pt;
+        padding: 5px;
+        min-width: 200px;
+      }
+  </style>
+  <script src="https://maps.google.com/maps/api/js?v=3&amp;sensor=false"></script>
+  <title>CF Tile Server</title>
+</head>
+<body>
+
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="./">CommonFloor[x]</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class=".col-md-4">
+        <h4 id="title">Revamping CF Maps</h4>
+      </div>
+    </div>
+    <form class="form-inline" role="form">
+      <div class="form-group">
+        <label for="email">Area:</label>
+        <select id="area" name="area" class="form-control">
+         <option value="all" selecte="selected"> All</option>
+         <option value = "Whitefield"> Whitefield</option>
+         <option value="JP Nagar">JP Nagar</option>
+         <option value="Marathahalli">Marathahalli</option>
+         <option value = "HSR Layout"> HSR Layout</option>
+         <option value = "Sarjapur Road"> Sarjapur Road</option>
+         
+         <option value="Abbigere">Abbigere</option>                 
+         <option value="Adugodi">Adugodi</option>         
+         <option value="AECS Layout">AECS Layout</option>                 
+         <option value="Akshayanagar">Akshayanagar</option>         
+         <option value="Amrutha Halli">Amrutha Halli</option>                 
+         <option value="Anekal">Anekal</option>                 
+         <option value="Anjanapura">Anjanapura</option>r        
+         <option value="Annapurneshwari Nagar">Annapurneshwari Nagar</option>                 
+         <option value="Arekere">Arekere</option>         
+         <option value="Ashok Nagar">Ashok Nagar</option>                 
+         <option value="Attibele">Attibele</option>                 
+         <option value="Attiguppe">Attiguppe</option>         
+         <option value="Babusa Palya">Babusa Palya</option>                 
+         <option value="Bagaluru">Bagaluru</option>                 
+         <option value="Banashankari">Banashankari</option>                 
+         <option value="Banaswadi">Banaswadi</option>                 
+         <option value="Bannerghatta">Bannerghatta</option>         
+         <option value="Bannerghatta Road">Bannerghatta Road</option>         
+         <option value="Bapuji Nagar">Bapuji Nagar</option>                 
+         <option value="Basapura">Basapura</option>                 
+         <option value="Basavanagar">Basavanagar</option>                 
+         <option value="Basavanagudi">Basavanagudi</option>         
+         <option value="Basaveshwara Nagar">Basaveshwara Nagar</option>                 
+         <option value="Begur">Begur</option>         
+         <option value="Begur Road">Begur Road</option>                 
+         <option value="Bellandur">Bellandur</option>
+         <option value="Bellandur Outer Ring Road">Bellandur Outer Ring Road</option>         
+         <option value="Bellary Road">Bellary Road</option>         
+         <option value="BEML Layout">BEML Layout</option>         
+         <option value="Bennigana Halli">Bennigana Halli</option>         
+         <option value="Benson Town">Benson Town</option>                 
+         <option value="Bettahalasur">Bettahalasur</option>         
+         <option value="Bhuvaneshwari Nagar">Bhuvaneshwari Nagar</option>                 
+         <option value="Bidadi">Bidadi</option>                 
+         <option value="Bidrahalli">Bidrahalli</option>                 
+         <option value="Bikkanahalli">Bikkanahalli</option>                 
+         <option value="Bilekahalli">Bilekahalli</option>                 
+         <option value="Bommanahalli">Bommanahalli</option>                 
+         <option value="Bommasandra">Bommasandra</option>         
+         <option value="Brigade Road">Brigade Road</option>                 
+         <option value="Brookefield">Brookefield</option>         
+         <option value="BTM Layout">BTM Layout</option>                 
+         <option value="Budigere">Budigere</option>         
+         <option value="Cambridge Layout">Cambridge Layout</option>                 
+         <option value="Chamarajpet">Chamarajpet</option>                 
+         <option value="Chandapura">Chandapura</option>
+         <option value="Chandapura Anekal Road">Chandapura Anekal Road</option>         
+         <option value="Chandra Layout">Chandra Layout</option>                
+         <option value="Channasandra ">Channasandra </option>                 
+         <option value="Chikbanavara">Chikbanavara</option>ur               
+         <option value="Chikkaballapur">Chikkaballapur</option>                 
+         <option value="Chikkajala">Chikkajala</option>         
+         <option value="Chikka Tirupathi">Chikka Tirupathi</option>                 
+         <option value="Choodasandra">Choodasandra</option>         
+         <option value="Commercial Street">Commercial Street</option>         
+         <option value="Cooke Town">Cooke Town</option>         
+         <option value="Cox Town">Cox Town</option>         
+         <option value="Cunningham Road">Cunningham Road</option> 
+         <option value="CV Raman Nagar">CV Raman Nagar</option>                 
+         <option value="Dasarahalli">Dasarahalli</option>
+         <option value="Dasarahalli Main Road">Dasarahalli Main Road</option>         
+         <option value="Dayananda Nagar">Dayananda Nagar</option>
+         <option value="Defence Colony (Bagalagunte)">Defence Colony (Bagalagunte)</option>                 
+         <option value="Devanahalli">Devanahalli</option>         
+         <option value="Devanahalli Road">Devanahalli Road</option>nahalli          
+         <option value="Devarachikkanahalli">Devarachikkanahalli</option>naHalli          
+         <option value="DevarachikkanaHalli">DevarachikkanaHalli</option>
+         <option value="Dodda Aalada Mara Road ">Dodda Aalada Mara Road </option>r                
+         <option value="Doddaballapur">Doddaballapur</option>         
+         <option value="Doddaballapur Road">Doddaballapur Road</option>         
+         <option value="Dodda Banasvadi">Dodda Banasvadi</option>ndra             
+         <option value="Doddabommasandra">Doddabommasandra</option>                 
+         <option value="Doddenakundi">Doddenakundi</option>         
+         <option value="Dollars Colony">Dollars Colony</option>                 
+         <option value="Domlur">Domlur</option>                 
+         <option value="Dommasandra">Dommasandra</option>                 
+         <option value="Ejipura">Ejipura</option>  
+         <option value="Electronic City ">Electronic City </option>
+         <option vallue="Electronic City Phase I">Electronic City Phase I</option>
+         <option value="Electronic City Phase II">Electronic City Phase II</option>         
+           <option value="Frazer Town">Frazer Town</option>         
+           <option value="Ganga Nagar">Ganga Nagar</option>         
+           <option value="GM Palya">GM Palya</option>                 
+           <option value="Gottigere">Gottigere</option>                 
+           <option value="Gowribidanur">Gowribidanur</option>                 
+           <option value="Gunjur">Gunjur</option>                 
+           <option value="HAL">HAL</option>         
+           <option value="Haralur Road">Haralur Road</option>                 
+           <option value="Haraluru">Haraluru</option>         
+           <option value="Haudin Road">Haudin Road</option>         
+           <option value="HBR Layout">HBR Layout</option>                 
+           <option value="Hebbal">Hebbal</option>         
+           <option value="Hegde Nagar">Hegde Nagar</option>                 
+           <option value="Hennur">Hennur</option>         
+           <option value="Hennur Road">Hennur Road</option>                 
+           <option value="Hesaraghatta">Hesaraghatta</option>
+           <option value="Hombegowda Nagar">Hombegowda Nagar</option>
+           <option value="Hongasandra">Hongasandra</option>
+           <option value="Hoodi">Hoodi</option>
+           <option value="Horamavu">Horamavu</option>
+         </select>
+       </div>
+      <div class="form-group">
+        <label for="status">Status:</label>
+        <select name="status" id="status" class="form-control">
+          <option value="all" selecte="selected"> All</option>
+          <option value="completed">completed</option>
+          <option value="ongoing">ongoing</option>
+          <option value="unkown">unkown</option>
+          <option value="upcoming">upcoming</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="railCheck">Rail Transport:</label>
+        <input type="checkbox" id="railCheck"> 
+      </div>
+    </form>
+    <br/>
+    <div class="row-fluid">
+      <div class=".col-md-12">
+        <div id="map" class="map">
+          <div id="gmap" class="fill"></div>
+          <div id="olmap" class="fill"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="display: none;">
+    <!-- Overlay with the country info -->
+    <div id="property-info">
+      <div id="apartment-name">&nbsp;</div>
+      <div id="city-name"></div>
+    </div>
+  </div>
+  <script src="js/jquery.min.js" type="text/javascript"></script>
+
+
+  <script src="js/gmaps.js" type="text/javascript"></script>
+
+</body>
+</html>

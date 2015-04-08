@@ -1,0 +1,10 @@
+{
+  "name": "cf-tile-server",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "*",
+    "mapnik": "*",
+    "compression": "~1.4.3",
+    "step": "0.0.5"
+  }
+}

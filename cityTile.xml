@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Map minimum-version="2.0.0">
+ <Style name="rail">
+  <Rule>
+    <LineSymbolizer  stroke-width="10" stroke-opacity="0.6"/>
+  </Rule>
+</Style>
+<Style name="point" filter-mode="first">
+
+   <!-- <Rule>
+    <MaxScaleDenominator>250000000000</MaxScaleDenominator>
+    <MinScaleDenominator>100000000</MinScaleDenominator>
+    <MarkersSymbolizer fill="#f68121" opacity="1" width="1" stroke="white" stroke-width="1.5" stroke-opacity=".1" placement="point" marker-type="ellipse" allow-overlap="true"/>
+  </Rule>
+
+<Rule>
+    <MaxScaleDenominator>100000000</MaxScaleDenominator>
+    <MinScaleDenominator>25000000</MinScaleDenominator>
+    <MarkersSymbolizer fill="red" opacity="1" width="2" stroke="white" stroke-width="1.5" stroke-opacity=".1" placement="point" marker-type="ellipse" allow-overlap="true"/>
+  </Rule>
+
+  <Rule>
+    <MaxScaleDenominator>50000000</MaxScaleDenominator>
+    <MinScaleDenominator>12500000</MinScaleDenominator>
+    <MarkersSymbolizer fill="blue" opacity="1" width="3" stroke="white" stroke-width="1.5" stroke-opacity=".2" placement="point" marker-type="ellipse" allow-overlap="true"/>
+  </Rule>-->
+
+  <Rule>
+    <MaxScaleDenominator>12500000</MaxScaleDenominator>
+    <MinScaleDenominator>100000</MinScaleDenominator>
+    <MarkersSymbolizer fill="#009688" opacity=".7" width="4" stroke="white" stroke-width="1" stroke-opacity=".3" placement="point" marker-type="ellipse" allow-overlap="true"/>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>100000</MaxScaleDenominator>
+    <MinScaleDenominator>50000</MinScaleDenominator>
+    <MarkersSymbolizer fill="#009688" opacity=".8" width="8" stroke="white" stroke-width="1" stroke-opacity=".3" placement="point" marker-type="ellipse" allow-overlap="true"/>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>50000</MaxScaleDenominator>
+    <MinScaleDenominator>25000</MinScaleDenominator>
+    <MarkersSymbolizer fill="#009688" opacity=".7" width="12" stroke="white" stroke-width="5" stroke-opacity=".5" placement="point" marker-type="ellipse" allow-overlap="true"/>
+  </Rule>
+  <Rule>
+    <MaxScaleDenominator>25000</MaxScaleDenominator>
+    <MinScaleDenominator>0</MinScaleDenominator>
+    <MarkersSymbolizer fill="#009688" opacity="1" width="17" stroke="white" stroke-width="5" stroke-opacity=".5" placement="point" marker-type="ellipse" allow-overlap="true"/>
+  </Rule>
+
+</Style>
+</Map>
