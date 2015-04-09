@@ -58,6 +58,7 @@ router.get('/:layer/:z(\\d+)/:x(\\d+)/:y(\\d+).:format', function(req,res){
                	 	res.end(output.encodeSync('png'));
 
 		} else {
+			 console.log(output);
 			 var grid_utf = output.encodeSync('utf',{resolution:4});
 			 var resString = req.query.callback + '('+ JSON.stringify(grid_utf)+')';
                         res.end(resString);
