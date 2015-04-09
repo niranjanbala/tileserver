@@ -47,19 +47,18 @@ router.get('/:layer/:z(\\d+)/:x(\\d+)/:y(\\d+).:format', function(req,res){
 			//Render UtfGrid
 			var grid = new mapnik.Grid(map.width,map.height);
         	var options = {'layer': 0,'fields': ['listing_id','name','title','house_type','num_bedrooms','listing_type','sale_type','listing_category','expected_amount_inr','deposit_amount_inr','rent_maintenance','maintenance_charges','possession_from']};// Parameters
-        	map.render(grid,options,this);;
+        	map.render(grid,options,this);
 		}
 	},
 	function render(err,output){
 		if(err) throw err;
-		console.log(output);
+		console.log(err);
 		if(output instanceof mapnik.Image) {
 			//Render Tile Image
 			 res.writeHead(200, {'Content-Type': 'image/png'});
                	 	res.end(output.encodeSync('png'));
 
 		} else {
-
 			 var grid_utf = output.encodeSync('utf',{resolution:4});
 			 var resString = req.query.callback + '('+ JSON.stringify(grid_utf)+')';
                         res.end(resString);
