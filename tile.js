@@ -32,7 +32,6 @@ router.get('/:layer/:z(\\d+)/:x(\\d+)/:y(\\d+).:format', function(req,res){
 		var layer = new mapnik.Layer('tile');
 		var postgisBuilder = require('./modules/postgisBuilder');
 		var postgis_settings=postgisBuilder.buildPostgis(req);
-//		console.log(postgis_settings);
 		layer.datasource = new mapnik.Datasource(postgis_settings);
 		layer.styles = [req.query.layerName == 'raildata' ? 'rail' : 'point']; //get from config
 		map.add_layer(layer);
@@ -47,12 +46,17 @@ router.get('/:layer/:z(\\d+)/:x(\\d+)/:y(\\d+).:format', function(req,res){
 			//Render UtfGrid
 			var grid = new mapnik.Grid(map.width,map.height);
         	var options = {'layer': 0,'fields': ['listing_id','name','title','house_type','num_bedrooms','listing_type','sale_type','listing_category','expected_amount_inr','deposit_amount_inr','rent_maintenance','maintenance_charges','possession_from']};// Parameters
+        	console.log(options);
+        	try {
         	map.render(grid,options,this);
+        	} catch(err2){
+        		console.log(err2);
+        		throw err2;
+        	}
 		}
 	},
 	function render(err,output){
 		if(err) throw err;
-		console.log(err);
 		if(output instanceof mapnik.Image) {
 			//Render Tile Image
 			 res.writeHead(200, {'Content-Type': 'image/png'});
@@ -66,10 +70,8 @@ router.get('/:layer/:z(\\d+)/:x(\\d+)/:y(\\d+).:format', function(req,res){
 	}
 );
 	} catch (err) {
-   		 res.writeHead(500, {'Content-Type': 'text/plain'});
-        	res.end(err.message);
-
+   		res.writeHead(500, {'Content-Type': 'text/plain'});
+      res.end(err.message);
 	}
-
 });
 module.exports = router;
