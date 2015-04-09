@@ -45,14 +45,11 @@ router.get('/:layer/:z(\\d+)/:x(\\d+)/:y(\\d+).:format', function(req,res){
 		} else {
 			//Render UtfGrid
 			var grid = new mapnik.Grid(map.width,map.height);
-        	var options = {'layer': 0,'fields': ['listing_id','name','title','house_type','num_bedrooms','listing_type','sale_type','listing_category','expected_amount_inr','deposit_amount_inr','rent_maintenance','maintenance_charges','possession_from']};// Parameters
-        	console.log(options);
-        	try {
-        	map.render(grid,options,this);
-        	} catch(err2){
-        		console.log(err2);
-        		throw err2;
-        	}
+    	var options = {'layer': 0,'fields': 
+    		['listing_id','name','title','house_type','num_bedrooms','listing_type','sale_type','listing_category',
+    		'expected_amount_inr','deposit_amount_inr','rent_maintenance','maintenance_charges','possession_from'
+    		]};// Parameters
+    	map.render(grid,options,this);
 		}
 	},
 	function render(err,output){
@@ -63,7 +60,7 @@ router.get('/:layer/:z(\\d+)/:x(\\d+)/:y(\\d+).:format', function(req,res){
                	 	res.end(output.encodeSync('png'));
 
 		} else {
-			 var grid_utf = output.encodeSync('utf',{resolution:4});
+			 var grid_utf = null;//output.encodeSync('utf',{resolution:4});
 			 var resString = req.query.callback + '('+ JSON.stringify(grid_utf)+')';
                         res.end(resString);
 		}
