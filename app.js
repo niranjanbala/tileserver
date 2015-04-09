@@ -48,6 +48,7 @@ if (cluster.isMaster) {
     var tile = require('./tile');
     app.use('/tile', tile);
     // Bind to a port
-    app.listen(4000);
+    app.set('port', process.env.PORT || 3000);
+    app.listen(app.get('port'));
     console.log('Worker ' + cluster.worker.id + ' running!');
 }
