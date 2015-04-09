@@ -1,3 +1,4 @@
+
 {
   "name": "cf-tile-server",
   "version": "0.0.1",
@@ -6,5 +7,9 @@
     "mapnik": "*",
     "compression": "~1.4.3",
     "step": "0.0.5"
+  },
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
   }
 }
